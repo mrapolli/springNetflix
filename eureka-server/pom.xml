@@ -7,10 +7,14 @@
     <artifactId>netflixoss-eureka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+<<<<<<< HEAD
     <modules>
         <module>../code</module>
     </modules>
     <packaging>pom</packaging>
+=======
+    <packaging>jar</packaging>
+>>>>>>> 5c0eaa356d7c01b81c5533e290624224987dfa9c
 
     <name>Eureka Server</name>
     <description>Eureka Server</description>

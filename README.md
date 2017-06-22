@@ -15,3 +15,8 @@ SERVER_PORT=9999 mvn spring-boot:run
 http://localhost:9090/api/customer-by-service/customer/1
 http://localhost:9090/api/customer-service/customer/1
 
+
+
+http://localhost:8089/hystrix
+http://localhost:8087/turbine/turbine.stream
+
