@@ -20,3 +20,10 @@ http://localhost:9090/api/customer-service/customer/1
 http://localhost:8089/hystrix
 http://localhost:8087/turbine/turbine.stream
 
+
+code
+http://localhost:8844/#/
+
+eureka
+http://localhost:8761/
+
