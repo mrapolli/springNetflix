@@ -7,7 +7,7 @@
         <version>1.5.2-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
-    <artifactId>spring-boot-admin-sample-hazelcast</artifactId>
+    <artifactId>Code</artifactId>
     <dependencies>
         <dependency>
             <groupId>de.codecentric</groupId>

@@ -30,6 +30,11 @@ public class ExampleSurgicalDebugFilterBean extends ZuulFilter {
         RequestContext.currentContext.setDebugRequest(true)
         RequestContext.getCurrentContext().zuulToZuul = true
 
+
+
+
+
+
     }
 
 }

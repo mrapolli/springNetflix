@@ -45,6 +45,17 @@
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/io.fabric8.kubeflix/ribbon-discovery -->
+        <dependency>
+            <groupId>io.fabric8.kubeflix</groupId>
+            <artifactId>ribbon-discovery</artifactId>
+            <version>1.0.27</version>
+        </dependency>
+
+
+
+
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
