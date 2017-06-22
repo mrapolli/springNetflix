@@ -6,9 +6,7 @@
     <groupId>org.exampledriven</groupId>
     <artifactId>netflixoss-eureka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
     <packaging>jar</packaging>
-
     <name>Eureka Server</name>
     <description>Eureka Server</description>
 

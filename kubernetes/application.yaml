@@ -74,6 +74,52 @@ spec:
         env:
         - name: KUBERNETES_SERVICE
           value: "http://192.168.99.100:31852"
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: zuul
+spec:
+  ports:
+  - name: zuul
+    protocol: TCP
+    port: 9090
+    targetPort: 9090
+    nodePort: 31853
+  selector:
+    name: zuul
+    tier: backend
+    app: zuul
+  type: LoadBalancer
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: zuul
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zuul 
+        tier: backend
+        name: zuul
+    spec:
+      containers:
+      - name: zuul
+        image: bidonmegale/zuul-machine:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9090
+        env:
+        - name: KUBERNETES_SERVICE
+          value: "http://192.168.99.100:31852"
+
+
+
+
+
+
 
 
 
