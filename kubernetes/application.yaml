@@ -1,0 +1,84 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: abacate
+spec:
+  ports:
+  - name: abacate
+    protocol: TCP
+    port: 8761
+    targetPort: 8761
+    nodePort: 31852
+  selector:
+    name: abacate
+    tier: backend
+    app: abacate
+  type: LoadBalancer
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: abacate
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: abacate 
+        tier: backend
+        name: abacate
+    spec:
+      containers:
+      - name: abacate
+        image: bidonmegale/eukica-machine
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8761
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: service
+spec:
+  ports:
+  - name: service
+    protocol: TCP
+    port: 9098
+    targetPort: 9098
+    nodePort: 31475
+  selector:
+    name: service
+    tier: backend
+    app: service
+  type: LoadBalancer
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: service
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: service 
+        tier: backend
+        name: service
+    spec:
+      containers:
+      - name: service
+        image: bidonmegale/service-machine:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9098
+        env:
+        - name: KUBERNETES_SERVICE
+          value: "http://192.168.99.100:31852"
+
+
+
+
+
+
+
+
