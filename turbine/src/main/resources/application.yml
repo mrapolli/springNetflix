@@ -10,7 +10,7 @@ instance:
     leaseRenewalIntervalInSeconds: 10
 client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: ${KUBERNETES_SERVICE:http://localhost:8761}/eureka/
     healthcheck:
       enabled: true
     lease:

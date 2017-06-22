@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: ${KUBERNETES_SERVICE:http://localhost:8761}/eureka/
 
 zuul:
   #Service will be mapped under the /api URI
@@ -21,15 +21,18 @@ zuul:
     customer-by-service:
       path: /customer-by-service/**
       serviceId: CUSTOMER-SERVICE
-    customers:
-      ribbon:
-      listOfServers: localhost:9098,localhost:9999
-    static:
-      path: /static/**
+
 
 spring:
+  config:
+    name: zuul
   application:
     name: zuul-server
+  cloud:
+    config:
+       failFast: true
+       discovery:
+          enabled: true
 
 ribbon:
   eureka:
