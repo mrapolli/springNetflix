@@ -31,7 +31,7 @@ spec:
       containers:
       - name: abacate
         image: bidonmegale/eukica-machine
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8761
 ---
@@ -108,7 +108,7 @@ spec:
       containers:
       - name: zuul
         image: bidonmegale/zuul-machine:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 9090
         env:
