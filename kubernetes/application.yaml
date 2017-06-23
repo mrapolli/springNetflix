@@ -129,7 +129,7 @@ spec:
   selector:
     name: hystrix
     tier: backend
-    app: zuul
+    app: hystrix
   type: LoadBalancer
 ---
 apiVersion: apps/v1beta1

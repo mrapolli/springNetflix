@@ -27,7 +27,7 @@ public class CustomerController {
 
     public Customer getCustomer(@PathVariable int id) {
 
-        
+        System.out.println("ROMARIO");
     	Customer customer = new Customer(); 
     	
 		try {

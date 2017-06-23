@@ -7,5 +7,5 @@ eureka:
     fetchRegistry: false
   server:
     enableSelfPreservation: false
-  instance:
-    preferIpAddress: true
+  #instance:
+  #  preferIpAddress: true
