@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -17,16 +19,26 @@ public class CustomerController {
 
     public CustomerController() {
         customers = new LinkedList<>();
-        customers.add(new Customer(1, "abdon", "abdon"));
-        customers.add(new Customer(2, "abdon", "abdon"));
+        customers.add(new Customer(1, "alfranio", "alfranio"));
+        customers.add(new Customer(2, "alfranio", "alfranio"));
     }
 
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = "application/json")     public Customer getCustomer(@PathVariable int id) {
 
-        Optional<Customer> customer = customers.stream().filter(customer1 -> customer1.getId() == id).findFirst();
-        System.out.println("Romario");
+        
+    	Customer customer = new Customer(); 
+    	
+		try {
+			URL url = new URL("http://192.168.99.100:31852");
+			url.openConnection().getInputStream();
+			customer.setFirstName("foi");
+			customer.setLastName("foi");
+		} catch (IOException e) {
+			customer.setFirstName("fudeu");
+			customer.setLastName("fudeu");
+		}
 
-        return customer.get();
+        return customer;
 
     }
 
