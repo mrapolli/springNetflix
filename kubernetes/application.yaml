@@ -24,13 +24,13 @@ spec:
   template:
     metadata:
       labels:
-        app: abacate 
+        app: abacate
         tier: backend
         name: abacate
     spec:
       containers:
       - name: abacate
-        image: bidonmegale/eukica-machine
+        image: miguelrapolli69/eukica-machine
         imagePullPolicy: Always
         ports:
         - containerPort: 8761
@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
       - name: service
-        image: bidonmegale/service-machine:latest
+        image: miguelrapolli69/service-machine:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 9098
@@ -107,7 +107,7 @@ spec:
     spec:
       containers:
       - name: zuul
-        image: bidonmegale/zuul-machine:latest
+        image: miguelrapolli69/zuul-machine:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 9090
@@ -147,8 +147,8 @@ spec:
     spec:
       containers:
       - name: hystrix
-        image: bidonmegale/hystrix-machine:latest
-        imagePullPolicy: IfNotPresent
+        image: miguelrapolli69/hystrix-machine:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8089
         env:

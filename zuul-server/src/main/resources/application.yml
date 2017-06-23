@@ -19,7 +19,7 @@ zuul:
       url: http://google.com
     customer-by-address:
       path: /customer-by-address/**
-      url: http://localhost:9098
+      url: http://192.168.99.100:31475
     customer-by-service:
       path: /customer-by-service/**
       serviceId: CUSTOMER-SERVICE

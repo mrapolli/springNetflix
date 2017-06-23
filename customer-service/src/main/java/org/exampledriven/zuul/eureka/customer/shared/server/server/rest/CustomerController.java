@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class CustomerController {
@@ -23,7 +22,10 @@ public class CustomerController {
         customers.add(new Customer(2, "alfranio", "alfranio"));
     }
 
-    @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = "application/json")     public Customer getCustomer(@PathVariable int id) {
+    @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = "application/json")
+
+
+    public Customer getCustomer(@PathVariable int id) {
 
         
     	Customer customer = new Customer(); 
