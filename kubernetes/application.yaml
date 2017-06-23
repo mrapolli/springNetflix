@@ -68,7 +68,7 @@ spec:
       containers:
       - name: service
         image: bidonmegale/service-machine:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 9098
         env:

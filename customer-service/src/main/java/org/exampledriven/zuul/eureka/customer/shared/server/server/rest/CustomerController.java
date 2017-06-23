@@ -17,8 +17,8 @@ public class CustomerController {
 
     public CustomerController() {
         customers = new LinkedList<>();
-        customers.add(new Customer(1, "Peter", "Test"));
-        customers.add(new Customer(2, "Peter", "Test2"));
+        customers.add(new Customer(1, "abdon", "abdon"));
+        customers.add(new Customer(2, "abdon", "abdon"));
     }
 
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = "application/json")     public Customer getCustomer(@PathVariable int id) {
