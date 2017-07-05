@@ -1,26 +1,38 @@
 server:
   port: 9098
 
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://192.168.99.100:31852/eureka/
-    healthcheck:
-      enabled: true
-    lease:
-      duration: 5
 
 spring:
   application:
     name: customer-service
 
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+       defaultZone: http://${DISCOVERY_SERVICE_HOST}:${DISCOVERY_SERVICE_PORT}/eureka/
 
+
+
+zuul:
+  retryable: true
 
 ribbon:
-  eureka:
-    enabled: false
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  OkToRetryOnAllOperations: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+
+
 

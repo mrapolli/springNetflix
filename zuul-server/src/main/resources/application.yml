@@ -1,47 +1,24 @@
 server:
   port: 9090
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://192.168.99.100:31852/eureka/
-  instance:
-      preferIpAddress: true
-
-zuul:
-  #Service will be mapped under the /api URI
-  prefix: /api
-#  Uncomment to disable auto-registering all services read from Eureka
-#  ignoredServices: '*'
-  routes:
-    test:
-      path: /redirect/**
-      url: http://google.com
-    customer-by-address:
-      path: /customer-by-address/**
-      url: http://192.168.99.100:666
-    customer-by-service:
-      path: /customer-by-service/**
-      serviceId: CUSTOMER-SERVICE
-
-
-#spring:
-#  config:
-#    name: zuul
-#  application:
-#    name: zuul-server
-#  cloud:
-#    config:
-#       failFast: true
-#       discovery:
-#          enabled: true
-
-#ribbon:
-#  eureka:
-#    enabled: true
 
 spring:
   application:
     name: zuul-server
 
+
+
+zuul:
+  #ignoredServices: "*"
+  routes:
+    customer-service:
+      path: /customer-service/**
+      serviceId: customer-service
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://${DISCOVERY_SERVICE_HOST}:${DISCOVERY_SERVICE_PORT}/eureka/
 
